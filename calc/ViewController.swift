@@ -14,61 +14,99 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    private var pastNum: Int = 0
-    private var currentNum: Int = 0
-    private var currentOp: String = ""
+    private var numArray: [Int] = []
+    private var opArray: [String] = []
+    
+    private var currentNum: Int? = nil
     
     @IBOutlet weak var label: UILabel!
     
     @IBAction func tapNumBtn(_ sender: UIButton) {
-        currentNum *= 10
-        currentNum += Int((sender.titleLabel?.text)!)!
+        if currentNum == nil {
+            currentNum = 0
+        }
+        currentNum! *= 10
+        currentNum! += Int((sender.titleLabel?.text)!)!
         
-        updateLabel(true)
+        updateLabel()
     }
 
     @IBAction func tapACBtn(_ sender: Any) {
-        currentOp = ""
-        pastNum = 0
-        currentNum = 0
-        updateLabel(true)
-        
+        currentNum = nil
+        numArray = []
+        opArray = []
+        label.text = "0"
     }
+    
     @IBAction func tapOpBtn(_ sender: UIButton) {
-        if (currentOp == "") {
-            pastNum = currentNum
-            currentNum = 0
+        if currentNum == nil && opArray.count >= 1 {
+            opArray[opArray.count - 1] = (sender.titleLabel?.text)!
+        } else {
+            numArray.append(currentNum ?? 0)
+            opArray.append((sender.titleLabel?.text)!)
+            currentNum = nil
         }
-        currentOp = (sender.titleLabel?.text)!
-        
-        updateLabel(false)
+        updateLabel()
     }
     
     @IBAction func tapEqBtn(_ sender: Any) {
-        switch currentOp {
-            case "+":
-                currentNum = pastNum + currentNum
-            case "-":
-                currentNum = pastNum - currentNum
+        numArray.append(currentNum ?? 0)
+        
+        var count = 0
+        while count < opArray.count {
+            switch opArray[count] {
             case "*":
-                currentNum = pastNum * currentNum
+                numArray[count] = numArray[count] * numArray[count + 1]
+                numArray.remove(at: count + 1)
+                opArray.remove(at: count)
+                
             case "/":
-                currentNum = pastNum / currentNum
+                numArray[count] = numArray[count] / numArray[count + 1]
+                numArray.remove(at: count + 1)
+                opArray.remove(at: count)
+                
             default:
-                return
+                count += 1
+            }
+           
         }
-        currentOp = ""
-        updateLabel(true)
+        
+        count = 0
+        while count < opArray.count {
+            switch opArray[count] {
+            case "+":
+                numArray[count] = numArray[count] + numArray[count + 1]
+                numArray.remove(at: count + 1)
+                opArray.remove(at: count)
+                
+            case "-":
+                numArray[count] = numArray[count] - numArray[count + 1]
+                numArray.remove(at: count + 1)
+                opArray.remove(at: count)
+                
+            default:
+                count += 1
+            }
+        }
+        
+        currentNum = numArray[0]
+        numArray = []
+        opArray = []
+        updateLabel()
     }
-    func updateLabel(_ isViewCurrentZero: Bool) {
-        label.text = ""
-        if (currentOp != "") {
-            label.text! += String(pastNum)
-            label.text! += currentOp
+
+    func updateLabel() {
+        var formula = ""
+        var count = 0
+        while count < numArray.count {
+            formula += String(numArray[count])
+            formula += opArray[count]
+            count += 1
         }
-        if(isViewCurrentZero || currentNum != 0) {
-            label.text! += String(currentNum)
+        if currentNum != nil {
+            formula += String(currentNum ?? 0)
         }
+        label.text = formula
     }
 
 }
