@@ -1,2 +1,5 @@
 # StoryBoard-test-calc
-iOS test
+iOS calculator built with StoryBoard (test)
+
+![01](./img/screenshot-01.png)
+![02](./img/screenshot-02.png)
