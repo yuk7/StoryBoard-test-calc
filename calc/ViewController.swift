@@ -7,18 +7,25 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        table.delegate = self
+        table.dataSource = self
     }
+    
+    private var recent: [String] = []
     
     private var numArray: [Double] = []
     private var opArray: [String] = []
     
     private var currentNum: Double? = nil
     
+    @IBOutlet weak var table: UITableView!
     @IBOutlet weak var label: UILabel!
     
     @IBAction func tapNumBtn(_ sender: UIButton) {
@@ -97,6 +104,8 @@ class ViewController: UIViewController {
         currentNum = numArray[0]
         numArray = []
         opArray = []
+        recent.append(label.text! + " = " + fixNumStr(String(currentNum!)))
+        table.reloadData()
         updateLabel()
     }
 
@@ -104,23 +113,32 @@ class ViewController: UIViewController {
         var formula = ""
         var count = 0
         while count < numArray.count {
-            formula += removePZero(String(numArray[count]))
+            formula += fixNumStr(String(numArray[count]))
             formula += opArray[count]
             count += 1
         }
         if currentNum != nil {
-            formula += removePZero(String(currentNum ?? 0))
+            formula += fixNumStr(String(currentNum ?? 0))
         }
         label.text = formula
     }
     
-    func removePZero(_ str: String) -> String {
+    func fixNumStr(_ str: String) -> String {
         var str1 = str
         if str1.suffix(2) == ".0" {
             str1.removeLast(2)
         }
         return str1
     }
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recent.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = recent[indexPath.row]
+        return cell
+    }
 }
 
