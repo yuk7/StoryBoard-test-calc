@@ -14,10 +14,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    private var numArray: [Int] = []
+    private var numArray: [Double] = []
     private var opArray: [String] = []
     
-    private var currentNum: Int? = nil
+    private var currentNum: Double? = nil
     
     @IBOutlet weak var label: UILabel!
     
@@ -26,12 +26,12 @@ class ViewController: UIViewController {
             currentNum = 0
         }
         currentNum! *= 10
-        currentNum! += Int((sender.titleLabel?.text)!)!
+        currentNum! += Double((sender.titleLabel?.text)!)!
         
         updateLabel()
     }
 
-    @IBAction func tapACBtn(_ sender: Any) {
+    @IBAction func tapACBtn(_ sender: Any?) {
         currentNum = nil
         numArray = []
         opArray = []
@@ -61,6 +61,11 @@ class ViewController: UIViewController {
                 opArray.remove(at: count)
                 
             case "/":
+                if numArray[count + 1] == 0 {
+                    tapACBtn(nil)
+                    label.text = "ERROR: Divide by Zero"
+                    return
+                }
                 numArray[count] = numArray[count] / numArray[count + 1]
                 numArray.remove(at: count + 1)
                 opArray.remove(at: count)
@@ -99,14 +104,22 @@ class ViewController: UIViewController {
         var formula = ""
         var count = 0
         while count < numArray.count {
-            formula += String(numArray[count])
+            formula += removePZero(String(numArray[count]))
             formula += opArray[count]
             count += 1
         }
         if currentNum != nil {
-            formula += String(currentNum ?? 0)
+            formula += removePZero(String(currentNum ?? 0))
         }
         label.text = formula
+    }
+    
+    func removePZero(_ str: String) -> String {
+        var str1 = str
+        if str1.suffix(2) == ".0" {
+            str1.removeLast(2)
+        }
+        return str1
     }
 
 }
