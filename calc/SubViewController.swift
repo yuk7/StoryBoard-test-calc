@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SubViewController: UIViewController {
+class SubViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var table: UITableView!
     
     var recent: [(([Double], [String]), Double)] = []
@@ -19,7 +19,10 @@ class SubViewController: UIViewController {
         vc = self.presentingViewController as? ViewController
         recent = vc!.recent
         table.delegate = self
-        table.dataSource = self        
+        table.dataSource = self
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressed(sender:)))
+        longPressRecognizer.delegate = self
+        table.addGestureRecognizer(longPressRecognizer)
     }
     
     func fixNumStr(_ str: String) -> String {
@@ -29,7 +32,20 @@ class SubViewController: UIViewController {
         }
         return str1
     }
-}
+    
+    @objc func longPressed(sender: UILongPressGestureRecognizer) {
+        let point = sender.location(in: table)
+        let indexPath = table.indexPathForRow(at: point)
+
+        if indexPath != nil && sender.state == UIGestureRecognizer.State.began{
+            let ((numArray, opArray), _) = recent[indexPath!.row]
+            vc?.numArray = numArray.dropLast()
+            vc?.opArray = opArray
+            vc?.currentNum = numArray.last
+            vc?.updateLabel()
+            dismiss(animated: true, completion: nil)
+        }
+    }}
 
 extension SubViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,7 +64,7 @@ extension SubViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let ((numArray, opArray), answer) = recent[indexPath.row]
         
-        cell.textLabel?.text = String(answer)
+        cell.textLabel?.text = fixNumStr(String(answer))
         var formula = ""
         var count = 0
         while count < opArray.count {
@@ -68,5 +84,4 @@ extension SubViewController: UITableViewDelegate, UITableViewDataSource {
         vc?.updateLabel()
         dismiss(animated: true, completion: nil)
     }
-    
 }

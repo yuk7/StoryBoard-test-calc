@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     
     public var recent: [(([Double], [String]), Double)] = []
     
-    private var numArray: [Double] = []
-    private var opArray: [String] = []
+    public var numArray: [Double] = []
+    public var opArray: [String] = []
     
     public var currentNum: Double? = nil
     
