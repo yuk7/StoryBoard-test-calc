@@ -14,8 +14,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        table.delegate = self
-        table.dataSource = self
     }
     
     private var recent: [String] = []
@@ -25,7 +23,6 @@ class ViewController: UIViewController {
     
     private var currentNum: Double? = nil
     
-    @IBOutlet weak var table: UITableView!
     @IBOutlet weak var label: UILabel!
     
     @IBAction func tapNumBtn(_ sender: UIButton) {
@@ -105,7 +102,6 @@ class ViewController: UIViewController {
         numArray = []
         opArray = []
         recent.append(label.text! + " = " + fixNumStr(String(currentNum!)))
-        table.reloadData()
         updateLabel()
     }
 
@@ -133,17 +129,3 @@ class ViewController: UIViewController {
     
     
 }
-
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recent.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = recent[indexPath.row]
-        return cell
-    }
-    
-}
-
