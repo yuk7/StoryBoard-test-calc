@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
     
     
 
@@ -131,6 +131,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return str1
     }
     
+    
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recent.count
     }
@@ -140,5 +144,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = recent[indexPath.row]
         return cell
     }
+    
 }
 
