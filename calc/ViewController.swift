@@ -30,7 +30,12 @@ class ViewController: UIViewController {
             currentNum = 0
         }
         currentNum! *= 10
-        currentNum! += Double((sender.titleLabel?.text)!)!
+        if currentNum! >= 0 {
+            currentNum! += Double((sender.titleLabel?.text)!)!
+        } else {
+            currentNum! -= Double((sender.titleLabel?.text)!)!
+        }
+        
         
         updateLabel()
     }
