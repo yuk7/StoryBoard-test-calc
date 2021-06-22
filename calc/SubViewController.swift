@@ -10,7 +10,7 @@ import UIKit
 class SubViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
     
-    var recent: [(String, Double)] = []
+    var recent: [(([Double], [String]), Double)] = []
     var vc: ViewController?
     
     override func viewDidLoad() {
@@ -19,9 +19,16 @@ class SubViewController: UIViewController {
         vc = self.presentingViewController as? ViewController
         recent = vc!.recent
         table.delegate = self
-        table.dataSource = self
+        table.dataSource = self        
     }
-
+    
+    func fixNumStr(_ str: String) -> String {
+        var str1 = str
+        if str1.suffix(2) == ".0" {
+            str1.removeLast(2)
+        }
+        return str1
+    }
 }
 
 extension SubViewController: UITableViewDelegate, UITableViewDataSource {
@@ -39,9 +46,19 @@ extension SubViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let item = recent[indexPath.row]
-        cell.textLabel?.text = String(item.1)
-        cell.detailTextLabel?.text = item.0
+        let ((numArray, opArray), answer) = recent[indexPath.row]
+        
+        cell.textLabel?.text = String(answer)
+        var formula = ""
+        var count = 0
+        while count < opArray.count {
+            formula += fixNumStr(String(numArray[count]))
+            formula += opArray[count]
+            count += 1
+        }
+        formula += fixNumStr(String(numArray.last!))
+        cell.detailTextLabel?.text = formula
+        
         return cell
     }
     

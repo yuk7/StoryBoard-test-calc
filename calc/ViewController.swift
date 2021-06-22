@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    public var recent: [(String, Double)] = []
+    public var recent: [(([Double], [String]), Double)] = []
     
     private var numArray: [Double] = []
     private var opArray: [String] = []
@@ -61,23 +61,26 @@ class ViewController: UIViewController {
     @IBAction func tapEqBtn(_ sender: Any) {
         numArray.append(currentNum ?? 0)
         
+        var numArray_ = numArray
+        var opArray_ = opArray
+        
         var count = 0
-        while count < opArray.count {
-            switch opArray[count] {
+        while count < opArray_.count {
+            switch opArray_[count] {
             case "*":
-                numArray[count] = numArray[count] * numArray[count + 1]
-                numArray.remove(at: count + 1)
-                opArray.remove(at: count)
+                numArray_[count] = numArray_[count] * numArray_[count + 1]
+                numArray_.remove(at: count + 1)
+                opArray_.remove(at: count)
                 
             case "/":
-                if numArray[count + 1] == 0 {
+                if numArray_[count + 1] == 0 {
                     tapACBtn(nil)
                     label.text = "ERROR: Divide by Zero"
                     return
                 }
-                numArray[count] = numArray[count] / numArray[count + 1]
-                numArray.remove(at: count + 1)
-                opArray.remove(at: count)
+                numArray_[count] = numArray_[count] / numArray_[count + 1]
+                numArray_.remove(at: count + 1)
+                opArray_.remove(at: count)
                 
             default:
                 count += 1
@@ -86,27 +89,27 @@ class ViewController: UIViewController {
         }
         
         count = 0
-        while count < opArray.count {
-            switch opArray[count] {
+        while count < opArray_.count {
+            switch opArray_[count] {
             case "+":
-                numArray[count] = numArray[count] + numArray[count + 1]
-                numArray.remove(at: count + 1)
-                opArray.remove(at: count)
+                numArray_[count] = numArray_[count] + numArray_[count + 1]
+                numArray_.remove(at: count + 1)
+                opArray_.remove(at: count)
                 
             case "-":
-                numArray[count] = numArray[count] - numArray[count + 1]
-                numArray.remove(at: count + 1)
-                opArray.remove(at: count)
+                numArray_[count] = numArray_[count] - numArray_[count + 1]
+                numArray_.remove(at: count + 1)
+                opArray_.remove(at: count)
                 
             default:
                 count += 1
             }
         }
         
-        currentNum = numArray[0]
+        currentNum = numArray_[0]
+        recent.append(((numArray, opArray), currentNum!))
         numArray = []
         opArray = []
-        recent.append((label.text!, currentNum!))
         updateLabel()
     }
 
