@@ -40,7 +40,8 @@ extension SubViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let item = recent[indexPath.row]
-        cell.textLabel?.text = item.0 + " = " + String(item.1)
+        cell.textLabel?.text = String(item.1)
+        cell.detailTextLabel?.text = item.0
         return cell
     }
     
