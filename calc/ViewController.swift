@@ -16,12 +16,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    private var recent: [String] = []
+    public var recent: [(String, Double)] = []
     
     private var numArray: [Double] = []
     private var opArray: [String] = []
     
-    private var currentNum: Double? = nil
+    public var currentNum: Double? = nil
     
     @IBOutlet weak var label: UILabel!
     
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
         currentNum = numArray[0]
         numArray = []
         opArray = []
-        recent.append(label.text! + " = " + fixNumStr(String(currentNum!)))
+        recent.append((label.text!, currentNum!))
         updateLabel()
     }
 

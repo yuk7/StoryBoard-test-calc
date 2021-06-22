@@ -14,6 +14,7 @@
 		6AC6CA52266F4BE700849E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AC6CA51266F4BE700849E57 /* Assets.xcassets */; };
 		6AC6CA55266F4BE700849E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AC6CA53266F4BE700849E57 /* LaunchScreen.storyboard */; };
 		6AC6CA5E266F504300849E57 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC6CA5D266F504300849E57 /* RoundButton.swift */; };
+		6AE585E12681BAF10006A07E /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE585E02681BAF10006A07E /* SubViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		6AC6CA54266F4BE700849E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AC6CA56266F4BE700849E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AC6CA5D266F504300849E57 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		6AE585E02681BAF10006A07E /* SubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				6AC6CA53266F4BE700849E57 /* LaunchScreen.storyboard */,
 				6AC6CA56266F4BE700849E57 /* Info.plist */,
 				6AC6CA5D266F504300849E57 /* RoundButton.swift */,
+				6AE585E02681BAF10006A07E /* SubViewController.swift */,
 			);
 			path = calc;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				6AC6CA5E266F504300849E57 /* RoundButton.swift in Sources */,
 				6AC6CA4D266F4BE600849E57 /* ViewController.swift in Sources */,
+				6AE585E12681BAF10006A07E /* SubViewController.swift in Sources */,
 				6AC6CA49266F4BE600849E57 /* AppDelegate.swift in Sources */,
 				6AC6CA4B266F4BE600849E57 /* SceneDelegate.swift in Sources */,
 			);
