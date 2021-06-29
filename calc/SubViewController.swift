@@ -38,12 +38,14 @@ class SubViewController: UIViewController, UIGestureRecognizerDelegate {
         let indexPath = table.indexPathForRow(at: point)
 
         if indexPath != nil && sender.state == UIGestureRecognizer.State.began{
-            let ((numArray, opArray), _) = recent[indexPath!.row]
-            vc?.numArray = numArray.dropLast()
-            vc?.opArray = opArray
-            vc?.currentNum = numArray.last
-            vc?.updateLabel()
-            dismiss(animated: true, completion: nil)
+            if vc?.currentNum == nil {
+                let ((numArray, opArray), _) = recent[indexPath!.row]
+                vc?.numArray.append(contentsOf: numArray.dropLast())
+                vc?.opArray.append(contentsOf: opArray)
+                vc?.currentNum = numArray.last
+                vc?.updateLabel()
+                dismiss(animated: true, completion: nil)
+            }
         }
     }}
 
@@ -79,7 +81,6 @@ extension SubViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        vc?.tapACBtn(nil)
         vc?.currentNum = recent[indexPath.row].1
         vc?.updateLabel()
         dismiss(animated: true, completion: nil)
