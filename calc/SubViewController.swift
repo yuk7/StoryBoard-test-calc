@@ -10,7 +10,7 @@ import UIKit
 class SubViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var table: UITableView!
     
-    var recent: [(([Double], [String]), Double)] = []
+    var recent: [(([NSDecimalNumber], [String]), NSDecimalNumber)] = []
     var vc: ViewController?
     
     override func viewDidLoad() {
@@ -25,14 +25,6 @@ class SubViewController: UIViewController, UIGestureRecognizerDelegate {
         table.addGestureRecognizer(longPressRecognizer)
     }
     
-    func fixNumStr(_ str: String) -> String {
-        var str1 = str
-        if str1.suffix(2) == ".0" {
-            str1.removeLast(2)
-        }
-        return str1
-    }
-    
     @objc func longPressed(sender: UILongPressGestureRecognizer) {
         let point = sender.location(in: table)
         let indexPath = table.indexPathForRow(at: point)
@@ -43,6 +35,7 @@ class SubViewController: UIViewController, UIGestureRecognizerDelegate {
                 vc?.numArray.append(contentsOf: numArray.dropLast())
                 vc?.opArray.append(contentsOf: opArray)
                 vc?.currentNum = numArray.last
+                vc?.syncCurrentNumAfterPoint()
                 vc?.updateLabel()
                 dismiss(animated: true, completion: nil)
             }
@@ -66,15 +59,15 @@ extension SubViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let ((numArray, opArray), answer) = recent[indexPath.row]
         
-        cell.textLabel?.text = fixNumStr(String(answer))
+        cell.textLabel?.text = answer.stringValue
         var formula = ""
         var count = 0
         while count < opArray.count {
-            formula += fixNumStr(String(numArray[count]))
+            formula += numArray[count].stringValue
             formula += opArray[count]
             count += 1
         }
-        formula += fixNumStr(String(numArray.last!))
+        formula += numArray.last!.stringValue
         cell.detailTextLabel?.text = formula
         
         return cell
@@ -82,6 +75,7 @@ extension SubViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         vc?.currentNum = recent[indexPath.row].1
+        vc?.syncCurrentNumAfterPoint()
         vc?.updateLabel()
         dismiss(animated: true, completion: nil)
     }

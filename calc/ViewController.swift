@@ -16,35 +16,53 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    public var recent: [(([Double], [String]), Double)] = []
+    public var recent: [(([NSDecimalNumber], [String]), NSDecimalNumber)] = []
     
-    public var numArray: [Double] = []
+    public var numArray: [NSDecimalNumber] = []
     public var opArray: [String] = []
     
-    public var currentNum: Double? = nil
+    public var currentNum: NSDecimalNumber? = nil
+    public var currentNumLenAfterPoint = -1
     
     @IBOutlet weak var label: UILabel!
     
     @IBAction func tapNumBtn(_ sender: UIButton) {
+        let tappedNum = NSDecimalNumber(value: Int((sender.titleLabel?.text)!)!)
         if currentNum == nil {
             currentNum = 0
         }
-        currentNum! *= 10
-        if currentNum! >= 0 {
-            currentNum! += Double((sender.titleLabel?.text)!)!
+        if currentNumLenAfterPoint < 0 {
+            currentNum = currentNum!.multiplying(by: 10)
+            if currentNum!.doubleValue >= 0 {
+                currentNum = currentNum!.adding(tappedNum)
+            } else {
+                currentNum = currentNum!.subtracting(tappedNum)
+            }
         } else {
-            currentNum! -= Double((sender.titleLabel?.text)!)!
+            var currentPosition = NSDecimalNumber(0.1)
+            for _ in 0..<currentNumLenAfterPoint {
+                currentPosition = currentPosition.multiplying(by: NSDecimalNumber(0.1))
+            }
+            currentNum = currentNum?.adding(tappedNum.multiplying(by: currentPosition))
+            currentNumLenAfterPoint += 1
         }
-        
         
         updateLabel()
     }
 
     @IBAction func tapACBtn(_ sender: Any?) {
         currentNum = nil
+        syncCurrentNumAfterPoint()
         numArray = []
         opArray = []
         label.text = "0"
+    }
+    
+    @IBAction func tapPointBtn(_ sender: Any) {
+        if currentNumLenAfterPoint < 0 {
+            currentNumLenAfterPoint = 0
+            updateLabel()
+        }
     }
     
     @IBAction func tapOpBtn(_ sender: UIButton) {
@@ -54,6 +72,8 @@ class ViewController: UIViewController {
             numArray.append(currentNum ?? 0)
             opArray.append((sender.titleLabel?.text)!)
             currentNum = nil
+            syncCurrentNumAfterPoint()
+            currentNumLenAfterPoint = -1
         }
         updateLabel()
     }
@@ -68,7 +88,7 @@ class ViewController: UIViewController {
         while count < opArray_.count {
             switch opArray_[count] {
             case "*":
-                numArray_[count] = numArray_[count] * numArray_[count + 1]
+                numArray_[count] = numArray_[count].multiplying(by: numArray_[count + 1])
                 numArray_.remove(at: count + 1)
                 opArray_.remove(at: count)
                 
@@ -78,7 +98,7 @@ class ViewController: UIViewController {
                     label.text = "ERROR: Divide by Zero"
                     return
                 }
-                numArray_[count] = numArray_[count] / numArray_[count + 1]
+                numArray_[count] = numArray_[count].dividing(by: numArray_[count + 1])
                 numArray_.remove(at: count + 1)
                 opArray_.remove(at: count)
                 
@@ -92,12 +112,12 @@ class ViewController: UIViewController {
         while count < opArray_.count {
             switch opArray_[count] {
             case "+":
-                numArray_[count] = numArray_[count] + numArray_[count + 1]
+                numArray_[count] = numArray_[count].adding(numArray_[count + 1])
                 numArray_.remove(at: count + 1)
                 opArray_.remove(at: count)
                 
             case "-":
-                numArray_[count] = numArray_[count] - numArray_[count + 1]
+                numArray_[count] = numArray_[count].subtracting(numArray_[count + 1])
                 numArray_.remove(at: count + 1)
                 opArray_.remove(at: count)
                 
@@ -107,6 +127,7 @@ class ViewController: UIViewController {
         }
         
         currentNum = numArray_[0]
+        syncCurrentNumAfterPoint()
         recent.append(((numArray, opArray), currentNum!))
         numArray = []
         opArray = []
@@ -117,23 +138,38 @@ class ViewController: UIViewController {
         var formula = ""
         var count = 0
         while count < numArray.count {
-            formula += fixNumStr(String(numArray[count]))
+            formula += numArray[count].stringValue
             formula += opArray[count]
             count += 1
         }
         if currentNum != nil {
-            formula += fixNumStr(String(currentNum ?? 0))
+            var currentNumStr = (currentNum ?? NSDecimalNumber(0)).stringValue
+            if currentNumLenAfterPoint >= 0 {
+                var countAfterPoint = 0
+                if !currentNumStr.contains(".") {
+                    currentNumStr += "."
+                } else {
+                    countAfterPoint = currentNumStr.split(separator:".")[1].count
+                }
+                for _ in (countAfterPoint ..< currentNumLenAfterPoint) {
+                        print(currentNumLenAfterPoint)
+                        currentNumStr += "0"
+                }
+            }
+            formula += currentNumStr
         }
         label.text = formula
     }
     
-    func fixNumStr(_ str: String) -> String {
-        var str1 = str
-        if str1.suffix(2) == ".0" {
-            str1.removeLast(2)
+    func syncCurrentNumAfterPoint() {
+        if currentNum == nil {
+            currentNumLenAfterPoint = -1
+        } else {
+            let currentNumStr = (currentNum ?? NSDecimalNumber(0)).stringValue
+            currentNumLenAfterPoint = -1
+            if currentNumStr.contains(".") {
+                currentNumLenAfterPoint = currentNumStr.split(separator:".")[1].count
+            }
         }
-        return str1
     }
-    
-    
 }
