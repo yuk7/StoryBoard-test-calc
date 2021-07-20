@@ -37,7 +37,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeP-yz-CM5" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="99" width="70" height="70"/>
+                                        <rect key="frame" x="37" y="99" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="7"/>
@@ -46,7 +46,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYB-OM-gQw" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="127" y="99" width="70" height="70"/>
+                                        <rect key="frame" x="121" y="99" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="8"/>
@@ -55,7 +55,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZO-HX-nef" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="218" y="99" width="70" height="70"/>
+                                        <rect key="frame" x="205" y="99" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="9"/>
@@ -64,7 +64,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUL-Pg-wGA" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="177" width="70" height="70"/>
+                                        <rect key="frame" x="37" y="177" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="4"/>
@@ -73,7 +73,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b59-Jw-nXo" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="218" y="177" width="70" height="70"/>
+                                        <rect key="frame" x="205" y="177" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="6"/>
@@ -82,7 +82,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl9-Jq-gSv" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="255" width="70" height="70"/>
+                                        <rect key="frame" x="37" y="255" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="1"/>
@@ -91,7 +91,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cK-Ox-42k" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="127" y="255" width="70" height="70"/>
+                                        <rect key="frame" x="121" y="255" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="2"/>
@@ -100,7 +100,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bn1-HD-Dgg" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="218" y="255" width="70" height="70"/>
+                                        <rect key="frame" x="205" y="255" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="3"/>
@@ -109,7 +109,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFd-ud-la2" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="218" y="333" width="70" height="70"/>
+                                        <rect key="frame" x="205" y="333" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <state key="normal" title="="/>
@@ -118,7 +118,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNG-uK-IXF" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="296" y="255" width="70" height="70"/>
+                                        <rect key="frame" x="289" y="255" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <state key="normal" title="-"/>
@@ -126,8 +126,17 @@
                                             <action selector="tapOpBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HHN-8k-OdT"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5L-yR-4gV" customClass="RoundButton" customModule="calc" customModuleProvider="target">
+                                        <rect key="frame" x="289" y="99" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <state key="normal" title="/"/>
+                                        <connections>
+                                            <action selector="tapOpBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jiL-PT-UjC"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cub-aA-tnO" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="296" y="177" width="70" height="70"/>
+                                        <rect key="frame" x="289" y="177" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <state key="normal" title="*"/>
@@ -136,7 +145,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWz-R0-rg6" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="296" y="333" width="70" height="70"/>
+                                        <rect key="frame" x="289" y="333" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                         <state key="normal" title="+"/>
@@ -145,7 +154,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeX-hN-acQ" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="127" y="177" width="70" height="70"/>
+                                        <rect key="frame" x="121" y="177" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="5"/>
@@ -154,7 +163,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCt-ph-FPv" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="333" width="70" height="70"/>
+                                        <rect key="frame" x="37" y="333" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="0"/>
@@ -163,7 +172,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7RK-We-kgp" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="127" y="333" width="70" height="70"/>
+                                        <rect key="frame" x="121" y="333" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="."/>
@@ -172,7 +181,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y34-BV-71i" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="21" width="70" height="70"/>
+                                        <rect key="frame" x="37" y="21" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="AC"/>
@@ -180,13 +189,31 @@
                                             <action selector="tapACBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JNg-CE-tLt"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5L-yR-4gV" customClass="RoundButton" customModule="calc" customModuleProvider="target">
-                                        <rect key="frame" x="296" y="99" width="70" height="70"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qen-n9-zXK" customClass="RoundButton" customModule="calc" customModuleProvider="target">
+                                        <rect key="frame" x="205" y="21" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                        <state key="normal" title="/"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="%"/>
                                         <connections>
-                                            <action selector="tapOpBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jiL-PT-UjC"/>
+                                            <action selector="tapPercent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W8H-6L-6ot"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1H-Gy-Ie1" customClass="RoundButton" customModule="calc" customModuleProvider="target">
+                                        <rect key="frame" x="289" y="21" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="+/-"/>
+                                        <connections>
+                                            <action selector="tapSignChBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sy9-pX-Jiq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxF-UN-X0W" customClass="RoundButton" customModule="calc" customModuleProvider="target">
+                                        <rect key="frame" x="121" y="21" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="C"/>
+                                        <connections>
+                                            <action selector="tapCBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2eg-sj-SbH"/>
                                         </connections>
                                     </button>
                                 </subviews>

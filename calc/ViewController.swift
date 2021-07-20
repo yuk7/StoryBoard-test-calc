@@ -58,13 +58,38 @@ class ViewController: UIViewController {
         label.text = "0"
     }
     
+    @IBAction func tapCBtn(_ sender: Any) {
+        currentNum = nil
+        syncCurrentNumAfterPoint()
+        updateLabel()
+        if numArray.count <= 0 {
+            label.text = "0"
+        }
+    }
+    
     @IBAction func tapPointBtn(_ sender: Any) {
+        if currentNum == nil {
+            currentNum = 0
+        }
         if currentNumLenAfterPoint < 0 {
             currentNumLenAfterPoint = 0
             updateLabel()
         }
     }
     
+    @IBAction func tapPercent(_ sender: Any) {
+        if currentNum != nil {
+            currentNum = currentNum?.dividing(by: 100)
+            syncCurrentNumAfterPoint()
+            updateLabel()
+        }
+    }
+    @IBAction func tapSignChBtn(_ sender: Any) {
+        if currentNum != nil {
+            currentNum = NSDecimalNumber(0).subtracting(currentNum!)
+            updateLabel()
+        }
+    }
     @IBAction func tapOpBtn(_ sender: UIButton) {
         if currentNum == nil && opArray.count >= 1 {
             opArray[opArray.count - 1] = (sender.titleLabel?.text)!
