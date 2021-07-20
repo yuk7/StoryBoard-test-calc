@@ -18,3 +18,4 @@ iOS calculator built with StoryBoard (test)
 * Memory calculation history
 * Input answer value from history (tap)
 * Input formula from history (long tap)
+* Decimal point support
